@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{47BC4D5C-FC9D-42CC-B158-46544B696FB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{409601B9-984E-4F99-9786-D9A8F1C486AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Catalog", "src\Services\Microservice.Catalog\Microservice.Catalog.csproj", "{99526B51-AEA3-4EA5-8673-92202A031893}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{FF9044F9-8274-40B7-8F88-ADC807A6D8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "src\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99526B51-AEA3-4EA5-8673-92202A031893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99526B51-AEA3-4EA5-8673-92202A031893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99526B51-AEA3-4EA5-8673-92202A031893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99526B51-AEA3-4EA5-8673-92202A031893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{409601B9-984E-4F99-9786-D9A8F1C486AE} = {47BC4D5C-FC9D-42CC-B158-46544B696FB8}
+		{99526B51-AEA3-4EA5-8673-92202A031893} = {409601B9-984E-4F99-9786-D9A8F1C486AE}
+		{FF9044F9-8274-40B7-8F88-ADC807A6D8F4} = {47BC4D5C-FC9D-42CC-B158-46544B696FB8}
+		{C1BE4562-BBAD-41AF-8C91-D06850E8B3CE} = {FF9044F9-8274-40B7-8F88-ADC807A6D8F4}
+	EndGlobalSection
+EndGlobal
