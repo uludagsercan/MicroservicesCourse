@@ -15,11 +15,10 @@ namespace Microservice.Catalog.Products.DeleteProduct
         }
 
     }
-    public class DeleteProductCommandHandler(IDocumentSession session, ILogger<DeleteProductCommand> logger) : ICommandHandler<DeleteProductCommand, DeleteProductResult>
+    public class DeleteProductCommandHandler(IDocumentSession session) : ICommandHandler<DeleteProductCommand, DeleteProductResult>
     {
         public async Task<DeleteProductResult> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            logger.LogInformation("Delete Product Service Called {@Command}", request);
             session.Delete<Product>(request.Id);
             await session.SaveChangesAsync(cancellationToken);
             return new DeleteProductResult(true);

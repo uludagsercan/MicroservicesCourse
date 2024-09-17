@@ -17,11 +17,10 @@ namespace Microservice.Catalog.Products.CreateProduct
             RuleFor(p=> p.Price).GreaterThan(0).WithMessage("Product price must be greater than zero");
         }
     }
-    internal class CreateProductCommandHandler(IDocumentSession session,ILogger<CreateProductCommand> logger) : ICommandHandler<CreateProductCommand, CreateProductResult>
+    internal class CreateProductCommandHandler(IDocumentSession session) : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         public async Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            logger.LogInformation("Product Created Called With {@Command}",request);
             Product product = new Product
             {
                 Name = request.Name,

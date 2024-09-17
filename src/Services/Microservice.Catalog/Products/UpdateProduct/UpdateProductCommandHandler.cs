@@ -21,12 +21,11 @@ namespace Microservice.Catalog.Products.UpdateProduct
             RuleFor(p => p.Price).GreaterThan(0).WithMessage("Product price must be greater than zero");
         }
     }
-    public class UpdateProductCommandHandler(IDocumentSession session, ILogger<UpdateProductCommand> logger) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
+    public class UpdateProductCommandHandler(IDocumentSession session) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
     {
         public async Task<UpdateProductResult> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            logger.LogInformation("Update Prdouct Called {@Command}", request);
-            var product = session.LoadAsync<Product>(Guid.Parse(request.Id));
+            var product =await session.LoadAsync<Product>(Guid.Parse(request.Id));
             if (product is null) throw new ProductNotFoundExeption();
             session.Update(product);
             await session.SaveChangesAsync(cancellationToken);

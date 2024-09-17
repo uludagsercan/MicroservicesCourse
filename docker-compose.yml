@@ -3,5 +3,11 @@ version: '3.4'
 services:
   catalogdb:
     image: postgres
+
+  catalog.api:
+    image: catalogapi
+    build:
+      context: .
+      dockerfile: src/Services/Microservice.Catalog/Dockerfile
 volumes:
   postgres_catalog:
