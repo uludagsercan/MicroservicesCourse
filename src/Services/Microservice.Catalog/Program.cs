@@ -31,11 +31,11 @@ var app = builder.Build();
 //     app.UseSwagger();
 //     app.UseSwaggerUI();
 // }
-app.UseExceptionHandler(options => { });
 app.UseHealthChecks("/health",
 new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 app.MapCarter();
+app.UseExceptionHandler(options => { });
 app.Run();

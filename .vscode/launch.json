@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "C#: Microservice.Catalog [Default Configuration]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/Services/Microservice.Catalog/Microservice.Catalog.csproj"
+        },
+        {
+            "name": "C#: Microservice.Basket [Default Configuration]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/Services/Microservice.Basket/Microservice.Basket.csproj"
+        },
+    ]
+}
