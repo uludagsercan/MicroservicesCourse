@@ -1,6 +1,7 @@
 
 using BuildingBlocks.Behaviors;
 using BuildingBlocks.Exceptions.Handler;
+using Discount.Grpc;
 using FluentValidation;
 using HealthChecks.UI.Client;
 using Marten;
@@ -24,7 +25,6 @@ builder.Services.AddStackExchangeRedisCache(options =>
 // });
 //Add Carter
 builder.Services.AddCarter();
-
 //Add Validation
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
@@ -49,6 +49,10 @@ builder.Services.AddHealthChecks()
 .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
 .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+});
 
 var app = builder.Build();
 app.MapCarter();
