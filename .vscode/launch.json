@@ -1,5 +1,12 @@
 {
     "configurations": [
+
+        {
+            "name": "C#: Discount Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/Services/Microservice.DiscountGrpc/Microservice.DiscountGrpc.csproj"
+        },
         {
             "name": "C#: Microservice.Catalog [Default Configuration]",
             "type": "dotnet",
@@ -12,5 +19,49 @@
             "request": "launch",
             "projectPath": "${workspaceFolder}/src/Services/Microservice.Basket/Microservice.Basket.csproj"
         },
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Services/Microservice.DiscountGrpc/bin/Debug/net8.0/Microservice.DiscountGrpc.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Services/Microservice.DiscountGrpc",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            "name": "Docker .NET Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/Services/Microservice.DiscountGrpc/Microservice.DiscountGrpc.csproj"
+            }
+        },
+        
+    ],
+    "compounds": [
+        {
+            "name": "Microservices",
+            "configurations": [
+                "C#: Microservice.Basket [Default Configuration]",
+                "C#: Discount Debug"
+            ]
+        }
     ]
 }

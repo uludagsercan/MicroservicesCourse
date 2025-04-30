@@ -8,6 +8,10 @@ services:
     image: postgres
   distributedcache:
     image: redis
+  discountdb:
+    image: redis
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
 #api images
   catalog.api:
     image: catalogapi
@@ -19,6 +23,12 @@ services:
     build: 
       context: .
       dockerfile: src/Services/Microservice.Basket/Dockerfile
+  discount.grpc:
+    image: discountgrpc
+    build: 
+      context: .
+      dockerfile: src/Services/Microservice.DiscountGrpc/Dockerfile
 volumes:
   postgres_catalog:
   postgres_basket:
+  postgres_discount:
